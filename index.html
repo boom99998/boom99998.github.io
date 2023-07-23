@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mean Average Calculator</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <h1>Mean Average Calculator</h1>
+    <form id="averageForm">
+        <label for="numbers">Enter numbers (comma-separated):</label>
+        <input type="text" id="numbers" name="numbers" required>
+        <br>
+        <button type="button" onclick="calculateMean()">Calculate Mean</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function calculateMean() {
+            const numbersInput = document.getElementById("numbers").value;
+            const numbersArray = numbersInput.split(",").map(Number);
+
+            const sum = numbersArray.reduce((acc, num) => acc + num, 0);
+            const mean = sum / numbersArray.length;
+
+            const resultElement = document.getElementById("result");
+            resultElement.innerHTML = `<p>The mean is: ${mean}</p>`;
+        }
+    </script>
+</body>
+</html>
